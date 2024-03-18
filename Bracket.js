@@ -57,7 +57,9 @@ async function main()
     }
 
     document.getElementById("inputPlaylist").style.display = "none";
-    document.getElementById("whole").style.display = "flex";
+    document.getElementById("right").addEventListener("click", display1);
+    document.getElementById("left").addEventListener("click", display2);
+    //document.getElementById("whole").style.display = "flex";
 
     await retrieve();
 
