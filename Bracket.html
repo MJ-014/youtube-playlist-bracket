@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rip Bracket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: "Shippori Antique", sans-serif;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #whole {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .content div {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .image {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .image img {
+            width: 80%;
+            aspect-ratio: 16/9;
+        }
+
+        .title {
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+
+    <script src="Bracket.js"></script>
+</head>
+
+<body>
+    <div id="inputPlaylist">
+        <input id="playlist" placeholder="Playlist ID ONLY!!!" >
+        <button onclick="main()">submit</button>
+    </div>
+    <div id="whole" style="display: none;">
+        <!-- Always have a div in .content. Don't have a text without a div tag. Don't use span. -->
+        <div class="content" onclick="display2()" id="left">
+            <div>
+                <div class="image">
+                    <img id="img1" src="https://i.ytimg.com/vi/NzoneDE0A2o/maxresdefault.jpg">
+                </div>
+                <div id="title1" class="title">The Inn - Fire Emblem</div>
+            </div>
+        </div>
+
+        <div class="content" onclick="display1()" id="right">
+            <div>
+                <div class="image">
+                    <img id="img2" src="https://i.ytimg.com/vi/NzoneDE0A2o/maxresdefault.jpg">
+                </div>
+                <div id="title2" class="title">The Inn - Fire Emblem</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
