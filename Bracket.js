@@ -10,14 +10,24 @@ async function retrieve()
     var jason = await response.json();
 
     jason.items.forEach(video => {
-        resultDic.push([video.snippet.title, video.snippet.thumbnails.maxres.url]);
+        if(video.snippet.thumbnails.maxres !== undefined){
+            resultDic.push([video.snippet.title, video.snippet.thumbnails.maxres.url]);
+        }
+        else{
+            resultDic.push([video.snippet.title, video.snippet.thumbnails.default.url]);
+        }
     });
     while(jason.nextPageToken !== undefined){
         var response = await fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=' + pId + '&pageToken=' + jason.nextPageToken + '&key=AIzaSyB9344Ql6zocDKI9rUmPisMbu8lV2GorH4');
         var jason = await response.json();
 
         jason.items.forEach(video => {
-            resultDic.push([video.snippet.title, video.snippet.thumbnails.maxres.url]);
+            if(video.snippet.thumbnails.maxres !== undefined){
+                resultDic.push([video.snippet.title, video.snippet.thumbnails.maxres.url]);
+            }
+            else{
+                resultDic.push([video.snippet.title, video.snippet.thumbnails.default.url]);
+            }
         });
     }
 }
